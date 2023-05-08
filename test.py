@@ -1,3 +1,5 @@
+import requests
+
 def fetch_github_repositories_all_pages(url, headers):
     page = 1
     per_page = 100
