@@ -1,11 +1,16 @@
-# 1から100までの数字を順番に表示し、3の倍数の場合は"Fizz"、5の倍数の場合は"Buzz"、3と5の倍数の場合は"FizzBuzz"と表示するプログラム
+import math, random
 
-for i in range(1, 101):
-    if i % 3 == 0 and i % 5 == 0:
-        print("FizzBuzz")
-    elif i % 3 == 0:
-        print("Fizz")
-    elif i % 5 == 0:
-        print("Buzz")
-    else:
-        print(i)
+def get_input():
+    try:
+        num = int(input("Enter a number: "))
+        if num < 1 or num > 10:
+            raise ValueError
+        return num
+    except ValueError:
+        print("Invalid input. Please enter a number between 1 and 10.")
+        return get_input()
+
+num = get_input()
+numbers = [random.randint(1, 10) for _ in range(num)]
+result = list(map(lambda x: math.sqrt(x), numbers))
+print(result)
