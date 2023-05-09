@@ -1,21 +1,11 @@
-import requests
+# 1から100までの数字を順番に表示し、3の倍数の場合は"Fizz"、5の倍数の場合は"Buzz"、3と5の倍数の場合は"FizzBuzz"と表示するプログラム
 
-def fetch_github_repositories_all_pages(url, headers):
-    page = 1
-    per_page = 100
-    all_items = []
-
-    while True:
-        paginated_url = f"{url}?page={page}&per_page={per_page}"
-        response = requests.get(paginated_url, headers=headers)
-        if response.status_code != 200:
-            break
-
-        items = response.json()
-        if not items:
-            break
-
-        all_items.extend(items)
-        page += 1
-
-    return all_items
+for i in range(1, 101):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
